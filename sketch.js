@@ -155,6 +155,8 @@ function setup() {
   shapes.push(new randomNoisyShape('circle'));
   shapes.push(new randomNoisyShape('circle'));
   shapes.push(new randomNoisyShape('circle'));
+  shapes.push(new randomNoisyShape('circle'));
+  shapes.push(new randomNoisyShape('circle'));
 
   // Initialize tree parameters
   let totalCircles = 6 + 4 * 2 + 3 * 2 + 2 * 2;
