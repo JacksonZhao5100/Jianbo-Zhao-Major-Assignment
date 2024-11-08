@@ -21,7 +21,7 @@ class randomNoisyShape {
     // Randomise the size of the shape between 5% and 20% of the width
     this.size = random(0.05, 0.2);
     // Randomise the colour of the shape
-    this.colour = [random(190, 200), random(150, 255), random(200, 255)];
+    this.colour = [random(240, 250), random(80, 180), random(0, 0)];
     // Randomise the noise scale between 0.1 and 0.35 - this will decide how much the shape will move. 
     // Try changing the range to see how it affects the shape's movement.
     this.noiseScale = random(0.1, 0.35);
@@ -137,6 +137,11 @@ class Cloud {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  // Reloads the entire page in 30 seconds
+  setInterval(() => {
+    location.reload(); 
+  }, 30000);
+
   // Initialize dynamic background colors
   nightColor = color(20, 24, 82);      // Night color (deep blue)
   sunriseColor = color(255, 160, 80);  // Sunrise color (orange)
@@ -168,6 +173,7 @@ function draw() {
   let scaleFactor = min(windowWidth, windowHeight) / 700; //scaleFactor is used to reshape the sizes of the fruit and the tree as the window grows and shrinks.
 
   let timeOfDay = frameCount % dayLength;
+
   let r, g, b;
   if (timeOfDay < dayLength / 4) { // Sunrise
     let sunriseProgress = sin(map(timeOfDay, 0, dayLength / 2, -HALF_PI, HALF_PI));
