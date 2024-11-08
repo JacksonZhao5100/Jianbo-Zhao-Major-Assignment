@@ -46,16 +46,13 @@ class randomNoisyShape {
 
     // The x position is the x value of the shape plus the xNoise value multiplied by the 
     // noise scale and the width of the canvas - same idea for the y position.
-    let x = (this.x + xNoise * this.noiseScale) * width;
-    let y = (this.y + yNoise * this.noiseScale) * height;
+    let x = (this.x + xNoise * this.noiseScale) * windowWidth;
+    let y = (this.y + yNoise * this.noiseScale) * windowHeight;
 
     // Draw the shape based on the type
     switch (this.type) {
       case 'circle':
-        ellipse(x, y, size, size);
-        break;
-      case 'square':
-        rect(x, y, size, size);
+        ellipse(x, y-(windowHeight/2), size, size);
         break;
     }
     // Increment the noise offset each frame so we sample the next part of the noise function.
@@ -193,7 +190,7 @@ function draw() {
     g = lerp(green(sunsetColor), green(nightColor), nightProgress);
     b = lerp(blue(sunsetColor), blue(nightColor), nightProgress);
   }
-  background(r, g, b); // Set background color
+  background(r, g, b, 10); // Set background color
 
   // Use a for-of loop to display the shapes.
   for (let shape of shapes) {
